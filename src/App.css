@@ -14,3 +14,12 @@
   transform: translateY(-2px);
   background-color: #f8f9fa;
 }
+
+/* This makes the image shrink slightly when clicked */
+.profile-click-animate {
+  transition: transform 0.1s ease-in-out;
+}
+
+.profile-click-animate:active {
+  transform: scale(0.92); /* Shrinks to 92% of its size */
+}
