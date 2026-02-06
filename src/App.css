@@ -9,7 +9,7 @@ body {
   /* Use a dark background color as a fallback while the image loads */
   background-color: #0b0b0b; 
   
-  background-image: url('./assets/anime-girl-night-city.jpg');
+  background-image: url('./assets/images/anime-girl-night-city.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
