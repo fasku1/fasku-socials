@@ -23,3 +23,52 @@
 .profile-click-animate:active {
   transform: scale(0.92); /* Shrinks to 92% of its size */
 }
+
+/* ANIMATIONS */
+
+/* TOP ANIMATION */
+
+@keyframes pushDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.9); /* Start slightly smaller */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.pushdown-overlay {
+  opacity: 0;
+  /* Use cubic-bezier for a 'weighted' feel */
+  animation: pushDown 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  
+  /* Critical for smoothness: */
+  will-change: transform, opacity; 
+  backface-visibility: hidden;
+}
+
+/* CARD ANIMATION */
+
+/* The Animation Script */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Moves it up slightly as it fades in */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* The Class for your items */
+.stagger-item {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  
+  /* 1.2s is the time it takes for your white overlay to start fading */
+  /* We add the staggered delay on top of that */
+  animation-delay: calc(0.6s + (var(--delay) * 0.32s));
+}

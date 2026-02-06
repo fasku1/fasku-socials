@@ -47,7 +47,7 @@ function App() {
 
   return (
     <>
-      <Container>
+      <Container className="pushdown-overlay">
         {/* Profile Section */}
         <img
           src={profilePic}
@@ -64,46 +64,50 @@ function App() {
         />
         <h2 className="fw-bold" style={{ fontSize: '30px' }}>@Fasku</h2>
         <p className="text-muted" style={{ fontSize: '18px' }} >Welcome to my space 🚀</p>
+      </Container>
 
+      <Container>
         {/* Links Section */}
         <Stack>
           {links.map((link, index) => (
             <a href={link.url} target="_blank" style={{ textDecoration: 'none' }}>
-              <Card
-                key={index}
-                className="card mb-2"
-                onMouseEnter={hover}
-                onClick={click}
-              >
-                <Card.Body
-                  style={{
-                    display: 'grid',
-                    // Increased from 40px to 60px to balance larger icons
-                    gridTemplateColumns: '60px 1fr 60px',
-                    alignItems: 'center',
-                    padding: '20px' // Increased padding for a chunkier button feel
-                  }}
+              <div key={index} className="stagger-item" style={{ "--delay": index }}>
+                <Card
+                  key={index}
+                  className="card mb-2"
+                  onMouseEnter={hover}
+                  onClick={click}
                 >
-                  {/* 1. Icon Column */}
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <img
-                      src={link.icon}
-                      alt=""
-                      // Increased icon size from 25px to 35px
-                      style={{ width: '35px', height: '35px', objectFit: 'contain' }}
-                    />
-                  </div>
+                  <Card.Body
+                    style={{
+                      display: 'grid',
+                      // Increased from 40px to 60px to balance larger icons
+                      gridTemplateColumns: '60px 1fr 60px',
+                      alignItems: 'center',
+                      padding: '20px' // Increased padding for a chunkier button feel
+                    }}
+                  >
+                    {/* 1. Icon Column */}
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                      <img
+                        src={link.icon}
+                        alt=""
+                        // Increased icon size from 25px to 35px
+                        style={{ width: '35px', height: '35px', objectFit: 'contain' }}
+                      />
+                    </div>
 
-                  {/* 2. Text Column */}
-                  {/* Changed fs-5 to fs-3 for significantly larger text */}
-                  <span style={{ textAlign: 'center', fontSize: '18px' }}>
-                    {link.name}
-                  </span>
+                    {/* 2. Text Column */}
+                    {/* Changed fs-5 to fs-3 for significantly larger text */}
+                    <span style={{ textAlign: 'center', fontSize: '18px' }}>
+                      {link.name}
+                    </span>
 
-                  {/* 3. Spacer (Matching the 60px width) */}
-                  <div style={{ width: '60px' }}></div>
-                </Card.Body>
-              </Card>
+                    {/* 3. Spacer (Matching the 60px width) */}
+                    <div style={{ width: '60px' }}></div>
+                  </Card.Body>
+                </Card>
+              </div>
             </a>
           ))}
         </Stack>
