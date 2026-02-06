@@ -53,7 +53,7 @@ function App() {
           src={profilePic}
           alt="Profile"
           /* Added 'profile-click-animate' to the className */
-          className="rounded-circle mb-3 shadow-sm profile-click-animate"
+          className="rounded-circle mb-3 shadow-lg profile-click-animate"
           onClick={togglePic}
           style={{
             cursor: 'pointer',
@@ -62,8 +62,8 @@ function App() {
             objectFit: 'cover'
           }}
         />
-        <h2 className="fw-bold" style={{ fontSize: '30px' }}>@Fasku</h2>
-        <p className="text-muted" style={{ fontSize: '18px' }} >Welcome to my space 🚀</p>
+        <h2 className="fw-bold light" style={{ fontSize: '30px' }}>@Fasku</h2>
+        <p className="light" style={{ fontSize: '18px' }} >Welcome to my space 🚀</p>
       </Container>
 
       <Container>
